@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Educational Website</title>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-functions.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- navbar  -->
+    <header>
+      <nav class="navbar">
+        <div class="logo">LearnSphere</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#login" id="login">Login</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li id="user-greeting" style="display: none">
+            Hi, <span id="user-name"></span>
+          </li>
+        </ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+    <!-- navbar end -->
+    <!-- login model -->
+
+    <!-- home -->
+    <section id="home">
+      <div class="home-content">
+        <h1>Welcome to LearnSphere</h1>
+        <p>Your platform for online education.</p>
+        <button class="cta-button" id="register-button">Get Started</button>
+      </div>
+    </section>
+
+    <!-- home end -->
+    <!-- courses -->
+    <section id="courses">
+      <h2 class="courses-heading">Courses Suggested for You</h2>
+      <p class="courses-guidance">
+        With proper guidance, track the courses that are most beneficial for
+        your learning journey.
+      </p>
+
+      <!-- Existing course content goes here -->
+
+      <div id="courses-container" class="courses-container">
+        <!-- Static Course Section with Project Boxes -->
+        <div class="course-item">
+          <h3>C# Tutorial</h3>
+          <p>
+            This course will give you a full introduction into all of the core
+            concepts in C# (aka C Sharp). Follow along with the course and
+            you'll be a C# programmer in no time!
+          </p>
+          <a href="https://www.youtube.com/watch?v=GhQdlIFylQ8" target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=ny5nIQMOkk0&list=PLm9GTh6TKrHOW8-eWabg6ETm95ajMid3b&index=2"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=WEv9qbWDbXs&list=PLm9GTh6TKrHOW8-eWabg6ETm95ajMid3b&index=11"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtube.com/playlist?list=PLdRq0mbeEBmxHRziHk1X3mCw_PvoRCskr&si=ljoHKqAKDsdzqIOk"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Repeat the above structure for each course/project box (total 10) -->
+        <!-- Course 2 -->
+        <div class="course-item">
+          <h3>HTML & CSS FULL COURSE</h3>
+
+          <p>
+            Learn HTML and CSS fundamentals to build and style responsive
+            websites, focusing on best practices, layouts, and hands-on
+            projects.
+          </p>
+          <a href="https://www.youtube.com/watch?v=G3e-cpL7ofc" target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=IsLfuvd4QCA"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=FaNTVjATYHQ"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=CgCPP2KO5ds"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Repeat for the remaining courses (up to 10 total) -->
+        <!-- Course 3 -->
+        <div class="course-item">
+          <h3>JAVASCRIPT FULL COURSE</h3>
+          <p>
+            Master JavaScript fundamentals, including functions, objects, DOM
+            manipulation, and asynchronous programming, to build interactive and
+            dynamic web applications.
+          </p>
+          <a href="https://www.youtube.com/watch?v=EerdGm-ehJQ" target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/LX8_z1nvqk4?si=4XimoDKE0iAYAucH"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtu.be/TgE71N0q5yI?si=c9AfK-lkHJFZTfHW"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/MIYQR-Ybrn4?si=u5laGA9cau2_p9oX"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Repeat for the remaining courses (up to 10 total) -->
+        <!-- Course 4 -->
+        <div class="course-item">
+          <h3>JAVA FULL COURSE</h3>
+          <p>
+            Learn Java programming fundamentals, object-oriented concepts, and
+            advanced features to build robust applications for web, mobile, and
+            desktop platforms.
+          </p>
+          <a href="https://www.youtube.com/watch?v=32DLasxoOiM" target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/pI08jd14_ic?si=AviZhBZtb0t69rGY"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtube.com/playlist?list=PLdRq0mbeEBmwUyZNJsmkBjQeIneme6HCz&si=_lXYd2LfGQQrYte9"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtube.com/playlist?list=PL_6klLfS1WqH8iVglMyh7FVniAvD9Ar-E&si=kt4mkL1hlcwRSkOD"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 5 -->
+        <div class="course-item">
+          <h3>KOTLIN FULL COURSE</h3>
+          <p>
+            Master Kotlin programming language essentials, including syntax,
+            object-oriented principles, and functional programming, to develop
+            Android applications and enhance productivity.
+          </p>
+          <a
+            href="https://youtube.com/playlist?list=PLRKyZvuMYSIMW3-rSOGCkPlO1z_IYJy3G&si=9r1K01TC7XK3P60o"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/Hi4a2Pk5RJA?si=YFoQeJ54Ac3sPnWn"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtube.com/playlist?list=PLhhNsarqV6MQrlXyjuaLJf__takk51_d-&si=5N-i2fkRxokN4aow"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/QFGKV8j2ulY?si=Zr2XlzprrfxBzTys"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 6 -->
+        <div class="course-item">
+          <h3>REACT JS FULL COURSE</h3>
+          <p>
+            Learn React JS fundamentals, including components, state management,
+            and hooks, to build dynamic user interfaces for web applications
+            efficiently.
+          </p>
+          <a
+            href="https://youtu.be/ZaC6oCIpjR0?si=bggY0I4UqkDblmIr"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/W7up-w1QYpw?si=tp7YYIBf0i415QXZ"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtu.be/miUsa5SOXGk?si=T2Q1KtKyDiGJXOTd"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/CcBHZ0t2Qwc?si=i5NSxy2FxKemfx_2"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 7 -->
+        <div class="course-item">
+          <h3>C++ COURSE</h3>
+          <p>
+            Master C++ programming fundamentals, including object-oriented
+            programming, data structures, and algorithms, to develop efficient
+            software and applications across platforms.
+          </p>
+          <a
+            href="https://youtu.be/-TkoO8Z07hI?si=vPiYB0ol41gA-q1x"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/0vNUiCnuO6w?si=TBEMmiSNDvPTYK6b"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://www.youtube.com/watch?v=-47a1XMna7I&list=PL7J_qm5CUrZoHa3IFrpkiXtubXSBQ-Nrv&index=10"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/kdRJgYO1BJM?si=JX6-OU2JS3ljwieG"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 8 -->
+        <div class="course-item">
+          <h3>PYTHON FULL COURSE</h3>
+          <p>
+            Master Python programming fundamentals, including data types,
+            functions, and libraries, to build applications for web development,
+            data analysis, and automation.
+          </p>
+          <a
+            href="https://youtu.be/_uQrJ0TkZlc?si=5VedhPn4wk1lsXs-"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/y_I2YOP91Is?si=MYlAS5clR2_sVKDx"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtu.be/kTaqR1WyT8A?si=OOE-mHU77VYxjMR7"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/O2bKsm9dNTA?si=3BZh9g64xpdK__bE"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 9 -->
+        <div class="course-item">
+          <h3>RUBY FULL COURSE</h3>
+          <p>
+            Learn Ruby programming basics, including syntax, object-oriented
+            concepts, and Rails framework, to develop web applications and
+            enhance productivity.
+          </p>
+          <a
+            href="https://youtu.be/t_ispmWmdjY?si=nb0Jh2vVsd2QM0-X"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/QojnRc7SS9o?si=3Coy_10r3y-LxhHo"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtube.com/playlist?list=PLl8zUt1K8heUDsRDGwXw-tj_6WJZOnENt&si=4azyq8TDuyIenntp"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/0mYK8DmTMzE?si=229aB2my9H1N2fQG"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+
+        <!-- Course 10 -->
+        <div class="course-item">
+          <h3>DART LANGUAGE FULL COURSE</h3>
+          <p>
+            Master Dart programming fundamentals, including syntax, asynchronous
+            programming, and Flutter framework, to build cross-platform mobile
+            applications efficiently and effectively.
+          </p>
+          <a
+            href="https://youtu.be/Ej_Pcr4uC2Q?si=xww5LF9bYgwluk_V"
+            target="_blank"
+            >View Course</a
+          >
+
+          <div class="project-box">
+            <p>
+              After this course do some suggested projects for practice which is
+              from beginner level to advance
+            </p>
+            <p>Beginner level project practice.</p>
+            <a
+              href="https://youtu.be/l9Z_P6niHs0?si=tYb2KGhZwEWFc2kI"
+              target="_blank"
+              >Start Beginner Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Intermediate level project practice.</p>
+            <a
+              href="https://youtu.be/bBL9yq1wwvI?si=l-nZd_gAcIQS4JCo"
+              target="_blank"
+              >Start Intermediate Project</a
+            >
+          </div>
+
+          <div class="project-box">
+            <p>Advanced level project practice.</p>
+            <a
+              href="https://youtu.be/EKdAU3l_0gA?si=kQw-P0aYFK_H_V2k"
+              target="_blank"
+              >Start Advanced Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- courses -->
+    <!-- about -->
+    <section id="about">
+      <div class="about-container">
+        <h2>About Us</h2>
+        <p>
+          Welcome to LearnSphere, your gateway to a world of knowledge! Our
+          mission is to provide high-quality educational resources that empower
+          learners of all ages. We believe in making learning accessible,
+          engaging, and effective. Whether you're looking to enhance your
+          skills, explore new subjects, or achieve academic success, we've got
+          you covered. Join us on this exciting journey of discovery and growth!
+        </p>
+        <div class="about-images">
+          <img src="about1.jpg" alt="Learning Image 1" class="about-image" />
+          <img src="about2.jpg" alt="Learning Image 2" class="about-image" />
+          <img src="about3.jpg" alt="Learning Image 3" class="about-image" />
+        </div>
+      </div>
+    </section>
+
+    <!-- about end -->
+    <!-- register section -->
+    <section id="register">
+      <div class="container">
+        <h1>Register</h1>
+        <form id="registration-form">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+          <button type="submit">Register</button>
+          <div class="error-message" id="error-message"></div>
+        </form>
+        <p id="login-redirect">
+          Already registered? <a href="#" id="go-to-login">Go to Login</a>
+        </p>
+      </div>
+
+      <!-- Login Modal -->
+      <div id="login-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Login</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input
+                type="email"
+                id="login-email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Enter your password"
+                required
+              />
+            </div>
+            <button type="submit">Login</button>
+            <div class="login-error-message" id="login-error-message"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- register section -->
+    <!-- contact section -->
+    <section id="contact">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <p>Email: ua6005969@gmail.com</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- contact section end -->
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2024 Ubaid Abbasi. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- footer end -->
+    <!-- script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+      import {
+        getFirestore,
+        doc,
+        setDoc,
+        getDoc,
+      } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCZ2425eYFZJThYD8AxOUNeTs-DJQXySyQ",
+        authDomain: "registrationform-6e6bb.firebaseapp.com",
+        databaseURL:
+          "https://registrationform-6e6bb-default-rtdb.firebaseio.com",
+        projectId: "registrationform-6e6bb",
+        storageBucket: "registrationform-6e6bb.appspot.com",
+        messagingSenderId: "584865712488",
+        appId: "1:584865712488:web:523875e7f436ab3366aedd",
+        measurementId: "G-205SS45GEL",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      console.log(firebaseConfig);
+      document.addEventListener("DOMContentLoaded", () => {
+        // Show the login modal when clicking "Go to Login"
+        document
+          .getElementById("go-to-login")
+          .addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+            document.getElementById("login-modal").style.display = "block"; // Show modal
+          });
+
+        // Close the modal when the user clicks on <span> (x)
+        document.querySelector(".close").addEventListener("click", function () {
+          document.getElementById("login-modal").style.display = "none"; // Hide modal
+        });
+
+        // Close the modal when clicking anywhere outside of the modal
+        window.addEventListener("click", function (event) {
+          const modal = document.getElementById("login-modal");
+          if (event.target === modal) {
+            modal.style.display = "none"; // Hide modal
+          }
+        });
+
+        // Handle registration form submission
+        document
+          .getElementById("registration-form")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword =
+              document.getElementById("confirm-password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            // Validate form
+            if (password !== confirmPassword) {
+              errorMessage.textContent = "Passwords do not match.";
+              return;
+            }
+
+            if (password.length < 6) {
+              errorMessage.textContent =
+                "Password must be at least 6 characters long.";
+              return;
+            }
+
+            // Save user data to Firestore
+            try {
+              await setDoc(doc(db, "users", email), {
+                username: username,
+                email: email,
+                password: password,
+              });
+              console.log("Document successfully written!");
+              errorMessage.textContent = "Registration successful!";
+              errorMessage.style.color = "green";
+              setTimeout(() => {
+                errorMessage.textContent = "";
+              }, 3000);
+              // Clear input fields
+              document.getElementById("registration-form").reset();
+            } catch (error) {
+              console.error("Error adding document: ", error);
+              errorMessage.textContent =
+                "Registration failed. Please try again.";
+            }
+          });
+
+        // Handle login form submission
+        document
+          .getElementById("login-form")
+          .addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            const loginErrorMessage = document.getElementById(
+              "login-error-message"
+            );
+
+            // Validate form
+            if (email === "" || password === "") {
+              loginErrorMessage.textContent = "Please fill in all fields.";
+              return;
+            }
+
+            try {
+              const userDoc = await getDoc(doc(db, "users", email));
+
+              if (userDoc.exists()) {
+                const userData = userDoc.data();
+                if (userData.password === password) {
+                  loginErrorMessage.textContent = `Welcome, ${userData.username}!`;
+                  loginErrorMessage.style.color = "green";
+                  setTimeout(() => {
+                    loginErrorMessage.textContent = "";
+                    document.getElementById("login-modal").style.display =
+                      "none"; // Hide modal
+                    // Clear input fields
+                    document.getElementById("login-form").reset();
+                  }, 3000);
+                } else {
+                  loginErrorMessage.textContent =
+                    "Incorrect password. Please try again.";
+                }
+              } else {
+                loginErrorMessage.textContent =
+                  "No user found with this email.";
+              }
+            } catch (error) {
+              console.error("Error getting document: ", error);
+              loginErrorMessage.textContent = "Login failed. Please try again.";
+            }
+          });
+      });
+    </script>
+    <!-- script -->
+    <script src="script.js"></script>
+  </body>
+</html>

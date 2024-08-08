@@ -1,0 +1,727 @@
+/* navbar */
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar styles */
+header {
+  background: #fff; /* Set background color to white */
+  color: #333; /* Change text color to dark for visibility */
+}
+
+.navbar {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  /* max-width: 1200px; */
+  margin: auto;
+  padding: 1em 20px;
+  position: fixed; /* Fixed positioning for sticky effect */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it stays on top */
+  transition: none; /* Remove transition effects */
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold; /* Added bold for better visibility */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #333; /* Change link color to dark */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease; /* Added transform for hover effect */
+}
+
+.nav-links a:hover {
+  color: #f0a500; /* Change hover color */
+  transform: scale(1.1); /* Scale effect on hover */
+}
+
+/* Burger menu */
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #333; /* Change burger color to match navbar */
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 25vh;
+    top: 8vh;
+    background: #fff; /* White background for mobile menu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav-active {
+    transform: translateX(0);
+  }
+
+  .nav-active li {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+  }
+}
+
+/* navbar end */
+/* home */
+/* Home Section */
+#home {
+  background: url("home.jpg") no-repeat center center/cover; /* Replace with your image URL */
+  height: 100vh; /* Full height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.home-content h1,
+p {
+  color: sienna;
+}
+#home h1 {
+  font-size: 3em; /* Increase the size of the H1 */
+  margin: 0; /* Remove default margin */
+}
+#home p {
+  font-size: 1.5em; /* Make the paragraph slightly smaller than H1 */
+  margin-bottom: 1.5em; /* Add bottom margin for spacing */
+}
+.home-content {
+  z-index: 2;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.cta-button {
+  background-color: #f0a500;
+  color: #fff;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+  /* margin-top: 0.1em; */
+}
+
+.cta-button:hover {
+  background-color: #d18d00;
+}
+
+/* Keyframe animation for fading in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles for home section */
+@media (max-width: 768px) {
+  #home h1 {
+    font-size: 2.5em;
+  }
+
+  #home p {
+    font-size: 1.2em;
+  }
+
+  .cta-button {
+    font-size: 1em;
+  }
+}
+
+/* home end */
+/* courses */
+/* Courses Section */
+/* Container Styles */
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Course Item Styles */
+.course-item {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.course-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Course Title */
+.course-item h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Course Description */
+.course-item p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.course-item a {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.course-item a:hover {
+  background-color: #0056b3;
+}
+
+/* Project Box */
+.project-box {
+  margin-top: 15px;
+}
+
+.project-box p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.project-box a {
+  background-color: #28a745;
+}
+
+.project-box a:hover {
+  background-color: #218838;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .courses-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* courses end */
+/* about */
+/* About Section Styles */
+#about {
+  background: #f9f9f9; /* Light background color */
+  padding: 50px 20px;
+  text-align: center; /* Center-align text */
+  position: relative;
+}
+
+.about-container {
+  max-width: 1200px; /* Max width for the container */
+  margin: auto;
+}
+
+.about-container h2 {
+  font-size: 2.5em; /* Heading size */
+  margin-bottom: 20px;
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeIn 1s forwards; /* Animation effect */
+  animation-delay: 0.3s; /* Delay for heading */
+}
+
+.about-container p {
+  font-size: 1.2em; /* Paragraph size */
+  margin-bottom: 30px;
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeIn 1s forwards; /* Animation effect */
+  animation-delay: 0.6s; /* Delay for paragraph */
+}
+
+.about-images {
+  display: flex;
+  justify-content: center; /* Center images */
+  flex-wrap: wrap; /* Wrap images */
+  gap: 20px; /* Space between images */
+}
+
+.about-image {
+  width: 30%; /* Set width for images */
+  border-radius: 10px; /* Rounded corners */
+  opacity: 0; /* Start hidden for animation */
+  animation: fadeIn 1s forwards; /* Animation effect */
+}
+
+.about-image:nth-child(1) {
+  animation-delay: 0.9s; /* Delay for first image */
+}
+
+.about-image:nth-child(2) {
+  animation-delay: 1.2s; /* Delay for second image */
+}
+
+.about-image:nth-child(3) {
+  animation-delay: 1.5s; /* Delay for third image */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Start transparent */
+    transform: translateY(20px); /* Start lower */
+  }
+  to {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .about-image {
+    width: 80%; /* Full width for small devices */
+  }
+}
+
+/* about end */
+/* contact form */
+#contact {
+  background: #f7f7f7; /* Light background */
+  padding: 50px 20px; /* Padding for the section */
+  text-align: center; /* Center-align text */
+}
+
+.contact-container {
+  max-width: 800px; /* Max width for the container */
+  margin: auto; /* Center the container */
+}
+
+.contact-container h2 {
+  font-size: 2.5em; /* Heading size */
+  margin-bottom: 20px; /* Space below the heading */
+  animation: fadeIn 1s ease; /* Animation for heading */
+}
+
+.contact-info {
+  margin-top: 30px; /* Space above contact info */
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start lower */
+  animation: slideIn 0.5s forwards 0.5s; /* Animation for contact info */
+}
+
+.contact-info h3 {
+  font-size: 2em; /* Subheading size */
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  font-size: 1em; /* Font size for contact info */
+  margin: 5px 0; /* Margin between paragraphs */
+}
+
+.social-media {
+  margin-top: 10px; /* Space above social media links */
+}
+
+.social-media a {
+  margin: 0 10px; /* Space between links */
+  color: #333; /* Link color */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+.social-media a:hover {
+  color: #f0a500; /* Change color on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #contact {
+    padding: 40px 10px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-container h2 {
+    font-size: 2em; /* Reduce heading size */
+  }
+
+  .contact-info h3 {
+    font-size: 1.8em; /* Reduce subheading size */
+  }
+
+  .contact-info p {
+    font-size: 0.9em; /* Slightly smaller font size */
+  }
+
+  .social-media a {
+    margin: 0 5px; /* Reduce margin for social media links */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container h2 {
+    font-size: 1.5em; /* Further reduce heading size */
+  }
+
+  .contact-info h3 {
+    font-size: 1.5em; /* Further reduce subheading size */
+  }
+
+  .contact-info p {
+    font-size: 0.8em; /* Further reduce font size for contact info */
+  }
+}
+
+/* contact form end */
+/* register */
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#error-message {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#login-redirect {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#login-redirect a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+#login-redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  animation: fadeIn 0.5s; /* Fade-in animation */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 400px; /* Max width for medium screens */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.5s forwards; /* Slide-in animation */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 300px;
+  }
+}
+/* register */
+/* footer
+ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeIn 1s ease;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap; /* Allows icons to wrap on smaller screens */
+}
+
+.social-icon {
+  margin: 0 15px;
+  transition: transform 0.3s;
+}
+
+.social-icon img {
+  width: 30px; /* Set the desired width for your icons */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.social-icon:hover {
+  transform: scale(1.1); /* Enlarge effect on hover */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .social-icon img {
+    width: 25px; /* Adjust icon size for smaller screens */
+  }
+}
+.courses-heading {
+  text-align: center; /* Center the heading */
+  font-size: 2.5em; /* Default font size */
+  margin-bottom: 0.5em; /* Space below the heading */
+  color: sienna; /* Match the theme */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .courses-heading {
+    font-size: 2em; /* Adjust font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-heading {
+    font-size: 1.5em; /* Adjust font size for mobile */
+  }
+}
+
+.courses-guidance {
+  text-align: center; /* Center the guidance text */
+  font-size: 1.2em; /* Default font size */
+  margin-bottom: 2em; /* Space below the paragraph */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .courses-guidance {
+    font-size: 1.1em; /* Adjust font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .courses-guidance {
+    font-size: 1em; /* Adjust font size for mobile */
+  }
+}
